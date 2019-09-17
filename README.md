@@ -1,8 +1,4 @@
 # Consul Cookbook
-[![Build Status](https://travis-ci.org/johnbellone/consul-cookbook.svg?branch=master)](https://travis-ci.org/johnbellone/consul-cookbook)
-[![Code Quality](https://img.shields.io/codeclimate/github/johnbellone/consul-cookbook.svg)](https://codeclimate.com/github/johnbellone/consul-cookbook)
-[![Cookbook Version](https://img.shields.io/cookbook/v/consul.svg)](https://supermarket.chef.io/cookbooks/consul)
-[![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [Application cookbook][0] which installs and configures [Consul][1].
 
@@ -216,6 +212,18 @@ All of the [options available on the command-line][12] can be passed
 into the resource. This could potentially be a *very dangerous*
 operation. You should absolutely understand what you are doing. By the
 nature of this command it is _impossible_ for it to be idempotent.
+
+### Development
+When you update this cookbook, perform the following steps to upload it to the chef-server
+
+1. Merge your changes in this repo
+2. `git tag <version>`
+3. `git push origin --tags`
+4. Verify tag exists on [releases page](https://github.com/goldstar/consul-cookbook/releases)
+5. `cd chef-repo`
+6. `bundle exec berks update consul`
+7. `bundle exec rake berks:vendor`
+8. `knife cookbook upload consul`
 
 [0]: http://blog.vialstudios.com/the-environment-cookbook-pattern/#theapplicationcookbook
 [1]: http://consul.io
